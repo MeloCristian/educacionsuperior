@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.saberpro.icfes">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Icfes"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Lista_areas">
+
+        </activity>
+        <activity
+            android:name=".registro"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".login"/>
+        <activity
+            android:name=".splash_bienvenida"
+            android:theme="@style/LaunchTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Materias"/>
+        <activity android:name=".Preguntas"/>
+    </application>
+
+</manifest>

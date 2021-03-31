@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_size_buttons">25sp</dimen>
+    <dimen name="font_size_text">20sp</dimen>
+    <dimen name="font_size_title">50sp</dimen>
+    <dimen name="alto_box">50sp</dimen>
+    <dimen name="ancho_boc">350dp</dimen>
+    <dimen name="p_et_left">15dp</dimen>
+    <dimen name="corner_radius_btn">20dp</dimen>
+    <dimen name="alto_btn">60dp</dimen>
+    <dimen name="alto_img_areas">180dp</dimen>
+    <dimen name="m_top">30dp</dimen>
+    <dimen name="m_16">16dp</dimen>
+    <dimen name="c_elevation">8dp</dimen>
+</resources>

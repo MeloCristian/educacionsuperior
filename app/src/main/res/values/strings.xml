@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">icfes</string>
+    <string name="registrate">REGÍSTRATE</string>
+    <string name="inicia_sesion">INICIA SESIÓN</string>
+    <string name="correo_electronico">CORREO ELECTRÓNICO</string>
+    <string name="contrasena">CONSTRASEÑA</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="olvido_sucontrasena"><u>OLVIDASTE TU CONTRASEÑA</u></string>
+    <string name="bienvenida">Bienvenid@</string>
+    <string name="confirma_pass">CONFIRMA TU CONTRASEÑA</string>
+    <string name="tu_correo">TU CORREO ELECTRÓNICO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="matematicas">Matematicas</string>
+    <string name="sociales">sociales</string>
+    <string name="que_hacer_hoy">¿QUE VAMOS A HACER HOY?</string>
+    <string name="Preicfes">PRE ICFES</string>
+    <string name="simulcaro">SIMULACRO</string>
+    <string name="que_materia">¿QUE MATERIA?</string>
+    <string name="pregunta_n">PREGUNTA 1</string>
+    <string name="respuesta_n">Respuesta</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="textoPregunta">Sin embargo, si el texto se ajusta a varias líneas, el texto aún estaría alineado a la izquierda dentro del TextView. Agregar el siguiente atributo hace que el texto real se alinee a la derecha (irregular a la izquierda) dentro de TextView:</string>
+</resources>

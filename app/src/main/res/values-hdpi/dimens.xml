@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_size_buttons">15sp</dimen>
+    <dimen name="font_size_text">18sp</dimen>
+    <dimen name="font_size_title">25sp</dimen>
+    <dimen name="alto_box">35dp</dimen>
+    <dimen name="ancho_boc">240dp</dimen>
+    <dimen name="p_et_left">15dp</dimen>
+    <dimen name="alto_carita_feliz">150dp</dimen>
+    <dimen name="corner_radius_btn">30dp</dimen>
+    <dimen name="alto_btn">40dp</dimen>
+    <dimen name="alto_img_areas">120dp</dimen>
+    <dimen name="m_top">30dp</dimen>
+    <dimen name="m_16">16dp</dimen>
+    <dimen name="c_elevation">8dp</dimen>
+    <dimen name="m_8">8dp</dimen>
+</resources>
