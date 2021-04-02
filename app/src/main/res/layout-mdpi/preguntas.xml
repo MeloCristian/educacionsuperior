@@ -20,7 +20,7 @@
             android:textSize="@dimen/m_top"
             android:textColor="@color/white"/>
 
-        <com.codesgood.views.JustifiedTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_pregunta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,8 @@
             android:background="@color/azul_claro"
             android:padding="@dimen/m_16"
             android:text="@string/textoPregunta"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:gravity="start"/>
         <RadioGroup
             android:id="@+id/respuestas"
             android:layout_width="match_parent"
