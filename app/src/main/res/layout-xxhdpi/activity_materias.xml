@@ -18,6 +18,7 @@
             android:gravity="center"
             android:orientation="vertical">
             <TextView
+                android:textAlignment="center"
                 android:id="@+id/title_areas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,11 +27,11 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_size_title"/>
 
-            <androidx.gridlayout.widget.GridLayout
+            <GridLayout
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                app:rowCount="4"
-                app:columnCount="2"
+                android:rowCount="4"
+                android:columnCount="2"
                 android:padding="@dimen/m_8"
                 android:layout_gravity="center_horizontal|center_vertical">
 
@@ -135,8 +136,8 @@
                     <ImageView
                         android:layout_width="@dimen/alto_img_areas"
                         android:layout_height="@dimen/alto_img_areas"
-                        android:src="@drawable/sociales"
-                        android:onClick="ciudadanas"/>
+                        android:onClick="ciudadanas"
+                        android:src="@drawable/sociales"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -176,7 +177,7 @@
                 </LinearLayout>
 
 
-            </androidx.gridlayout.widget.GridLayout>
+            </GridLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 </RelativeLayout>

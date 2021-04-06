@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.saberpro.icfes.Funciones.Funciones;
 import com.saberpro.icfes.Interfaces.UsuarioApi;
 import com.saberpro.icfes.Models.Usuario;
 
@@ -25,6 +26,7 @@ public class registro extends AppCompatActivity {
     private EditText correo;
     private EditText pass;
     private EditText conf_pass;
+    private Funciones funciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class registro extends AppCompatActivity {
         this.correo = findViewById(R.id.et_correo_reg);
         this.pass = findViewById(R.id.et_contrasena_reg);
         this.conf_pass = findViewById(R.id.et_conf_pass_reg);
-
+        this.funciones = new Funciones();
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
@@ -64,7 +66,7 @@ public class registro extends AppCompatActivity {
 
         try{
             Retrofit retro = new Retrofit.Builder()
-                    .baseUrl("http://port-3000.educacionsuperior-melocristian9603732948.codeanyapp.com/")
+                    .baseUrl(funciones.getUrl())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -81,7 +83,10 @@ public class registro extends AppCompatActivity {
                     }
 
                     Usuario usuario = response.body();
-                    Toast.makeText(getApplicationContext(),"Registrado "+usuario.getEmail_us(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(),login.class);
+                    startActivity(i);
+                    finish();
                 }
 
                 @Override

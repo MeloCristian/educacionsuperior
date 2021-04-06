@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.saberpro.icfes.Funciones.Funciones;
 import com.saberpro.icfes.Interfaces.AuthApi;
 import com.saberpro.icfes.Models.Auth;
 
@@ -20,12 +21,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Funciones funciones;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        funciones = new Funciones();
         validar_sesionActiva();
 
     }
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void validar_sesionActiva(){
-        String url = "http://port-3000.educacionsuperior-melocristian9603732948.codeanyapp.com/";
+        String url = funciones.getUrl();
         SharedPreferences preferences = getSharedPreferences("tokens", Context.MODE_PRIVATE);
         String token = preferences.getString("token","DEFAULT");
         try{

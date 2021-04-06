@@ -68,6 +68,7 @@
                 android:inputType="textPassword"
                 android:paddingLeft="@dimen/p_et_left"
                 android:paddingRight="@dimen/p_et_left"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -75,15 +76,11 @@
             <Button
                 android:id="@+id/btn_registro"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/alto_btn"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/round_nbtn"
                 android:onClick="registrar"
                 android:text="@string/registrate"
-                android:textColor="@color/azul_fondo"
                 android:textSize="@dimen/font_size_buttons"
-                app:backgroundTint="@null"
-                app:cornerRadius="@dimen/corner_radius_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.508"
@@ -101,6 +98,7 @@
                 android:inputType="textPersonName"
                 android:paddingLeft="@dimen/p_et_left"
                 android:paddingRight="@dimen/p_et_left"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -116,6 +114,7 @@
                 android:inputType="textPassword"
                 android:paddingLeft="@dimen/p_et_left"
                 android:paddingRight="@dimen/p_et_left"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />

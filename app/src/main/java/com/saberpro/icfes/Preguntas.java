@@ -16,10 +16,13 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import com.saberpro.icfes.Funciones.Funciones;
 import com.saberpro.icfes.Interfaces.PreguntaApi;
 import com.saberpro.icfes.Models.Pregunta;
 import com.saberpro.icfes.Models.Respuesta;
+import com.saberpro.icfes.dialogs.TeoriaFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,13 +46,13 @@ public class Preguntas extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Respuesta respuestas[];
     private Pregunta pregunta;
-
+    private Funciones funciones;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
-
+        funciones = new Funciones();
         getSupportActionBar().setTitle(getIntent().getStringExtra("nombre_area"));
 
         this.id_area = getIntent().getStringExtra("id_area");
@@ -69,7 +72,7 @@ public class Preguntas extends AppCompatActivity {
 
     private void setPregunta(){
         this.scroll_preguntas.fullScroll(View.FOCUS_UP);
-        String url = "http://port-3000.educacionsuperior-melocristian9603732948.codeanyapp.com/";
+        String url = funciones.getUrl();
         SharedPreferences preferences = getSharedPreferences("tokens", Context.MODE_PRIVATE);
         String token = preferences.getString("token","DEFAULT");
         try{
@@ -154,13 +157,16 @@ public class Preguntas extends AppCompatActivity {
     }
 
     public void mostrarInfo(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        TeoriaFragment teoriaFragment = new TeoriaFragment(this.info);
+        teoriaFragment.show(getSupportFragmentManager(), "Teoria");
+
+       /* AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Teoria");
         builder.setMessage(this.info);
         builder.setPositiveButton("Aceptar", null);
         // Create the AlertDialog object and return it
         AlertDialog dialog = builder.create();
-        dialog.show();
+        dialog.show();*/
     }
 
     public void setText_tv_pregunta(String text){

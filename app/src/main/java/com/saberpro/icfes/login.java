@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.saberpro.icfes.Funciones.Funciones;
 import com.saberpro.icfes.Interfaces.AuthApi;
 import com.saberpro.icfes.Interfaces.UsuarioApi;
 import com.saberpro.icfes.Models.Auth;
@@ -38,6 +39,7 @@ public class login extends AppCompatActivity {
 
     private EditText correo;
     private EditText pass;
+    private Funciones funciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class login extends AppCompatActivity {
 
         this.correo = findViewById(R.id.et_correo_login);
         this.pass = findViewById(R.id.et_contrasena_login);
+        funciones = new Funciones();
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
@@ -72,7 +75,7 @@ public class login extends AppCompatActivity {
     }
 
     private void login(String email, String pass ){
-        String url = "http://port-3000.educacionsuperior-melocristian9603732948.codeanyapp.com/";
+        String url = funciones.getUrl();
         try{
             Retrofit retro = new Retrofit.Builder()
                     .baseUrl(url)
