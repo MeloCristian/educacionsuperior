@@ -19,8 +19,10 @@
     <string name="que_materia">¿QUE MATERIA?</string>
     <string name="pregunta_n">PREGUNTA 1</string>
     <string name="respuesta_n">Respuesta</string>
-    <string name="siguiente">Siguiente</string>
+    <string name="siguiente">Siguiente pregunta</string>
     <string name="lo_que_debes_saber">LO QUE DEBES SABER</string>
+    <string name="proque">PORQUE:</string>
+    <string name="la_respuesta_es_correcta">LA RESPUESTA ES CORRECTA</string>
     <string name="entendido">entendido</string>
     <string name="textoPregunta">Sin embargo, si el texto se ajusta a varias líneas, el texto aún estaría alineado a la izquierda dentro del TextView. Agregar el siguiente atributo hace que el texto real se alinee a la derecha (irregular a la izquierda) dentro de TextView:</string>
 </resources>

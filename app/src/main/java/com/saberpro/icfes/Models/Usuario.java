@@ -38,4 +38,5 @@ public class Usuario {
     public void setId_rol(String id_rol) {
         this.id_rol = id_rol;
     }
+
 }

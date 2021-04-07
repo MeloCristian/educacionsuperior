@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialogs.ResCorrectaFragment"
+    android:background="@color/azul_claro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/alto_carita_feliz"
+            android:layout_height="@dimen/alto_carita_feliz"
+            android:background="@android:drawable/checkbox_on_background"
+            android:paddingBottom="@dimen/m_top"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/la_respuesta_es_correcta"
+            android:textSize="@dimen/font_size_buttons"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/m_16"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/proque"
+            android:textSize="@dimen/font_size_text"
+            android:layout_marginTop="@dimen/m_8"
+            android:textColor="@color/black"/>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_consepto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m_top"
+                    android:layout_marginTop="@dimen/m_8"
+                    android:layout_marginRight="@dimen/m_top"
+                    android:layout_marginBottom="@dimen/m_top"
+                    android:text="@string/textoPregunta"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_siguiente_pregunta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/siguiente" />
+
+    </LinearLayout>
+
+</RelativeLayout>

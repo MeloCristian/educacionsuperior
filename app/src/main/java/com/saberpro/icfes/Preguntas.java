@@ -3,6 +3,7 @@ package com.saberpro.icfes;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,6 +69,15 @@ public class Preguntas extends AppCompatActivity {
         this.nPregunta=0;
         this.progressDialog = progressDialog.show(this, "Cargando...","",true);
         setPregunta();
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent i = new Intent(getApplicationContext(),Materias.class);
+                startActivity(i);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
 
     }
 

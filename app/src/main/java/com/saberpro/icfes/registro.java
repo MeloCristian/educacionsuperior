@@ -14,6 +14,8 @@ import com.saberpro.icfes.Funciones.Funciones;
 import com.saberpro.icfes.Interfaces.UsuarioApi;
 import com.saberpro.icfes.Models.Usuario;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -78,7 +80,11 @@ public class registro extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                     if(!response.isSuccessful()){
-                        Toast.makeText(getApplicationContext(),"Fallo registro", Toast.LENGTH_SHORT).show();
+                        try {
+                            Toast.makeText(getApplicationContext(),response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            Toast.makeText(getApplicationContext(),"Error al registro", Toast.LENGTH_SHORT).show();
+                        }
                         return;
                     }
 
