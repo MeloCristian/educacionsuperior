@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|center_vertical"
+    android:background="@drawable/fondo1">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_contrasena_login"
+                android:layout_width="@dimen/ancho_boc"
+                android:layout_height="@dimen/alto_box"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/shape_round"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/p_et_left"
+                android:paddingRight="@dimen/p_et_left"
+                android:textSize="@dimen/font_size_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="@string/inicia_sesion"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_title"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/btn_olvidate_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/olvido_sucontrasena"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
+
+            <EditText
+                android:id="@+id/et_correo_login"
+                android:layout_width="@dimen/ancho_boc"
+                android:layout_height="@dimen/alto_box"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_round"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/p_et_left"
+                android:paddingRight="@dimen/p_et_left"
+                android:textSize="@dimen/font_size_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/contrasena"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_correo_login" />
+
+            <Button
+                android:id="@+id/btn_entrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:onClick="inciar_usuario"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="@string/entrar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_contrasena_login" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/correo_electronico"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

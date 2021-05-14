@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondo1"
     tools:context=".MainActivity">
 
     <Button
@@ -42,7 +42,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/bienvenida"
         android:textColor="@color/white"
-        android:textSize="@dimen/font_size_title"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"

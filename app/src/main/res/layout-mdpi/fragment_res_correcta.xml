@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".dialogs.ResCorrectaFragment"
+    android:background="@drawable/round_background"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:paddingBottom="@dimen/m_16"
+    android:paddingTop="@dimen/m_16"
+    android:layout_margin="@dimen/m_top">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="@drawable/shape_round_azul"
+        android:layout_margin="@dimen/m_8">
+        <TextView
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/la_respuesta_es_correcta"
+            android:textSize="@dimen/font_size_title3"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/m_16"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/imgCheck"/>
+        <ImageView
+            android:id="@+id/imgCheck"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_width="@dimen/alto_ico_resCorrecta"
+            android:layout_height="@dimen/alto_ico_resCorrecta"
+            android:background="@drawable/check"
+            android:backgroundTint="@color/teal_200"
+            android:paddingBottom="@dimen/m_top"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/m_8"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/alto_caja_info2"
+        android:background="@color/azul_fondo3"
+        android:layout_margin="@dimen/m_16">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/proque"
+                android:textSize="@dimen/font_size_title3"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_consepto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/m_top"
+                android:text="@string/textoPregunta"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_text2" />
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/btn_siguiente_pregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/siguiente" />
+</LinearLayout>

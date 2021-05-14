@@ -3,6 +3,8 @@ package com.saberpro.icfes.dialogs;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,7 +45,7 @@ public class ResCorrectaFragment extends DialogFragment {
     private AlertDialog createDialogTeoria(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View v = inflater.inflate(R.layout.fragment_teoria,null);
+        View v = inflater.inflate(R.layout.fragment_res_correcta,null);
         builder.setView(v);
         siguiente = (Button) v.findViewById(R.id.btn_siguiente_pregunta);
         tv_consepto = (TextView) v.findViewById(R.id.tv_consepto);
@@ -58,4 +60,10 @@ public class ResCorrectaFragment extends DialogFragment {
         return builder.create();
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
 }

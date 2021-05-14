@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialogs.ResIncorrectaFragment"
+    android:background="@color/azul_fondo3"
+    android:layout_margin="@dimen/m_top"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/alto_ico_resCorrecta"
+            android:layout_height="@dimen/alto_ico_resCorrecta"
+            android:background="@drawable/error"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/m_top"
+            android:backgroundTint="@color/rojo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m_16"
+            android:text="@string/res_incorrecta"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_size_text"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m_16"
+            android:text="@string/debiste_responder"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_size_text2"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_res_correcta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textoPregunta"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="@dimen/m_8"
+            android:layout_marginStart="@dimen/m_16"
+            android:layout_marginEnd="@dimen/m_16"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m_16"
+            android:text="@string/proque"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_text2"/>
+
+        <TextView
+            android:id="@+id/tv_justificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m_16"
+            android:layout_marginEnd="@dimen/m_16"
+            android:text="@string/textoPregunta"
+            android:background="@color/white"
+            android:padding="@dimen/m_8"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btn_siguiente_preguntaRI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_text"
+            android:text="@string/siguiente"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/m_16"
+            />
+
+    </LinearLayout>
+</ScrollView>

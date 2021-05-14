@@ -34,7 +34,7 @@ public class registro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        getSupportActionBar().hide();
+
 
         this.correo = findViewById(R.id.et_correo_reg);
         this.pass = findViewById(R.id.et_contrasena_reg);

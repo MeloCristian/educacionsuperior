@@ -2,6 +2,7 @@
 <resources>
     <dimen name="font_size_buttons">15sp</dimen>
     <dimen name="font_size_text">18sp</dimen>
+    <dimen name="font_size_text2">15sp</dimen>
     <dimen name="font_size_title">35sp</dimen>
     <dimen name="alto_box">35dp</dimen>
     <dimen name="ancho_boc">300dp</dimen>

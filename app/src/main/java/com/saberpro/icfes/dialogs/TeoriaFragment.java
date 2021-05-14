@@ -3,6 +3,8 @@ package com.saberpro.icfes.dialogs;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -57,5 +59,12 @@ public class TeoriaFragment extends DialogFragment {
         });
 
         return builder.create();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }

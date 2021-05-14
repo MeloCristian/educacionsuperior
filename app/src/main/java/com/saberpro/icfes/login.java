@@ -45,7 +45,6 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().hide();
 
         this.correo = findViewById(R.id.et_correo_login);
         this.pass = findViewById(R.id.et_contrasena_login);

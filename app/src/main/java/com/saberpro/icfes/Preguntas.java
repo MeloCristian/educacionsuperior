@@ -24,6 +24,8 @@ import com.saberpro.icfes.Funciones.Funciones;
 import com.saberpro.icfes.Interfaces.PreguntaApi;
 import com.saberpro.icfes.Models.Pregunta;
 import com.saberpro.icfes.Models.Respuesta;
+import com.saberpro.icfes.dialogs.ResCorrectaFragment;
+import com.saberpro.icfes.dialogs.ResIncorrectaFragment;
 import com.saberpro.icfes.dialogs.TeoriaFragment;
 
 import retrofit2.Call;
@@ -46,7 +48,7 @@ public class Preguntas extends AppCompatActivity {
     private int nPregunta;
     private ScrollView scroll_preguntas;
     private ProgressDialog progressDialog;
-    private Respuesta respuestas[];
+    private Respuesta[] respuestas;
     private Pregunta pregunta;
     private Funciones funciones;
 
@@ -55,7 +57,6 @@ public class Preguntas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
         funciones = new Funciones();
-        getSupportActionBar().setTitle(getIntent().getStringExtra("nombre_area"));
 
         this.id_area = getIntent().getStringExtra("id_area");
         this.tv_pregunta = (TextView) findViewById(R.id.tv_pregunta);
@@ -67,7 +68,7 @@ public class Preguntas extends AppCompatActivity {
         this.rb_respuestaD = (RadioButton) findViewById(R.id.rb_respuestaD);
         this.scroll_preguntas = (ScrollView) findViewById(R.id.scroll_pregunta);
         this.nPregunta=0;
-        this.progressDialog = progressDialog.show(this, "Cargando...","",true);
+        this.progressDialog = ProgressDialog.show(this, "Cargando...","",true);
         setPregunta();
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
@@ -137,13 +138,8 @@ public class Preguntas extends AppCompatActivity {
         System.out.println(index);
         if (index>=0){
             if (respuestas[index].isCorrecta()){
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Repuesta correcta");
-                builder.setMessage("Criterio: "+ pregunta.getClave());
-                builder.setPositiveButton("Aceptar", null);
-                // Create the AlertDialog object and return it
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                ResCorrectaFragment resCorrectaFragment = new ResCorrectaFragment(pregunta.getClave());
+                resCorrectaFragment.show(getSupportFragmentManager(), "Siguiente");
             }else{
                 Respuesta correcta=null;
                 for (Respuesta res: respuestas){
@@ -151,13 +147,8 @@ public class Preguntas extends AppCompatActivity {
                         correcta = res;
                     }
                 }
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Repuesta incorrecta");
-                builder.setMessage("Respuesta correcta: "+correcta.getDescripcion()+"\n\n"+"Criterio: "+ pregunta.getClave());
-                builder.setPositiveButton("Aceptar", null);
-                // Create the AlertDialog object and return it
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                ResIncorrectaFragment resIncorrectaFragment = new ResIncorrectaFragment(pregunta.getClave(),correcta.getDescripcion());
+                resIncorrectaFragment.show(getSupportFragmentManager(),"Respuesta incorrecta");
             }
             setPregunta();
             this.rg_respuestas.clearCheck();
@@ -170,14 +161,6 @@ public class Preguntas extends AppCompatActivity {
     public void mostrarInfo(View view){
         TeoriaFragment teoriaFragment = new TeoriaFragment(this.info);
         teoriaFragment.show(getSupportFragmentManager(), "Teoria");
-
-       /* AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Teoria");
-        builder.setMessage(this.info);
-        builder.setPositiveButton("Aceptar", null);
-        // Create the AlertDialog object and return it
-        AlertDialog dialog = builder.create();
-        dialog.show();*/
     }
 
     public void setText_tv_pregunta(String text){

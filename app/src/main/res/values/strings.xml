@@ -24,5 +24,8 @@
     <string name="proque">PORQUE:</string>
     <string name="la_respuesta_es_correcta">LA RESPUESTA ES CORRECTA</string>
     <string name="entendido">entendido</string>
+    <string name="ir">IR</string>
     <string name="textoPregunta">Sin embargo, si el texto se ajusta a varias líneas, el texto aún estaría alineado a la izquierda dentro del TextView. Agregar el siguiente atributo hace que el texto real se alinee a la derecha (irregular a la izquierda) dentro de TextView:</string>
+    <string name="res_incorrecta">LA RESPUESTA ES INCORRECTA</string>
+    <string name="debiste_responder">DEBISTE RESPONDER</string>
 </resources>
