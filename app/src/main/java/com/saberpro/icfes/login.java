@@ -1,4 +1,5 @@
-package com.saberpro.icfes;
+registro hub ve
+        package com.saberpro.icfes;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,6 +91,7 @@ public class login extends AppCompatActivity {
                 public void onResponse(Call<Auth> call, Response<Auth> response) {
                     if(!response.isSuccessful()){
                         Toast.makeText(getApplicationContext(),"Fallo inicio de sesión", Toast.LENGTH_SHORT).show();
+                        System.out.println(response.errorBody().charStream());
                         return;
                     }
 
