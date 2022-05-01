@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void registrarce(View view){
-        Intent i = new Intent(getApplicationContext(),registro.class);
+        Intent i = new Intent(getApplicationContext(),MainRegistro.class);
         startActivity(i);
         finish();
     }

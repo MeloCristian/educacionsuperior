@@ -31,4 +31,13 @@
         <item name="android:windowBackground">@drawable/fondo</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="Theme.Icfes.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Icfes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Icfes.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

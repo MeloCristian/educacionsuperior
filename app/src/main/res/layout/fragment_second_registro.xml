@@ -1,0 +1,95 @@
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/fondo1">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:layout_height="wrap_content"
+            android:text="@string/title_registro2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_title2"
+            android:textStyle="bold"
+            android:shadowColor="@color/white"
+            android:shadowDy="2"
+            android:shadowDx="2"
+            android:shadowRadius="4"
+            android:layout_marginBottom="@dimen/m_50"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m_16"
+            app:boxCornerRadiusTopEnd="@dimen/m_16"
+            app:boxCornerRadiusBottomEnd="@dimen/m_16"
+            app:boxCornerRadiusBottomStart="@dimen/m_16"
+            app:boxCornerRadiusTopStart="@dimen/m_16"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m_16"
+            app:boxCornerRadiusTopEnd="@dimen/m_16"
+            app:boxCornerRadiusBottomEnd="@dimen/m_16"
+            app:boxCornerRadiusBottomStart="@dimen/m_16"
+            app:boxCornerRadiusTopStart="@dimen/m_16"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_contrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/contrasena"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m_16"
+            app:boxCornerRadiusTopEnd="@dimen/m_16"
+            app:boxCornerRadiusBottomEnd="@dimen/m_16"
+            app:boxCornerRadiusBottomStart="@dimen/m_16"
+            app:boxCornerRadiusTopStart="@dimen/m_16"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_conf_contrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/conf_contrasena"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_registro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="registrar"
+            android:text="@string/registrate" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

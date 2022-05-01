@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -15,17 +14,17 @@
         android:theme="@style/Theme.Icfes"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Lista_areas">
-
-        </activity>
         <activity
-            android:name=".registro"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".login"/>
+            android:name=".MainRegistro"
+            android:exported="false"
+            android:label="@string/title_activity_main_registro"
+            android:theme="@style/Theme.Icfes.NoActionBar" />
+        <activity android:name=".Lista_areas"></activity>
+        <activity android:name=".login" />
         <activity
             android:name=".splash_bienvenida"
-            android:theme="@style/LaunchTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/LaunchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,8 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Materias"/>
-        <activity android:name=".Preguntas"/>
+        <activity android:name=".Materias" />
+        <activity android:name=".Preguntas" />
     </application>
 
 </manifest>

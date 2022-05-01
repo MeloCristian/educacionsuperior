@@ -33,11 +33,11 @@
             />
 
         <androidx.viewpager.widget.ViewPager
-            android:layout_below="@+id/tv_title_opciones"
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/lista_puntos"/>
+            android:layout_above="@+id/lista_puntos"
+            android:layout_below="@+id/tv_title_opciones" />
 
         <LinearLayout
             android:id="@+id/lista_puntos"

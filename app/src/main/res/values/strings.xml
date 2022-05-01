@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">icfes</string>
-    <string name="registrate">REGÍSTRATE</string>
     <string name="inicia_sesion">INICIA SESIÓN</string>
     <string name="correo_electronico">CORREO ELECTRÓNICO</string>
-    <string name="contrasena">CONSTRASEÑA</string>
     <string name="entrar">ENTRAR</string>
     <string name="olvido_sucontrasena"><u>OLVIDASTE TU CONTRASEÑA</u></string>
     <string name="bienvenida">Bienvenid@</string>
@@ -28,4 +26,28 @@
     <string name="textoPregunta">Sin embargo, si el texto se ajusta a varias líneas, el texto aún estaría alineado a la izquierda dentro del TextView. Agregar el siguiente atributo hace que el texto real se alinee a la derecha (irregular a la izquierda) dentro de TextView:</string>
     <string name="res_incorrecta">LA RESPUESTA ES INCORRECTA</string>
     <string name="debiste_responder">DEBISTE RESPONDER</string>
+    <string name="title_activity_main_registro">MainRegistro</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--Texto de registro persona-->
+    <string name="titulo_registro">Registre sus datos personales </string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="title_registro2">Registre su usuario</string>
+    <string name="email">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="conf_contrasena">Confirmar contraseña</string>
+
+    <!--Texto usable en cualquier sitio-->
+    <string name="siguiente_item">Siguiente</string>
+    <string name="registrate">Regístrate</string>
+
 </resources>
