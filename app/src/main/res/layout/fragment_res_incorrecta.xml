@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dialogs.ResIncorrectaFragment"
+    tools:context="com.saberpro.dialogs.ResIncorrectaFragment"
     android:background="@color/azul_fondo3"
     android:layout_margin="@dimen/m_top"
     >

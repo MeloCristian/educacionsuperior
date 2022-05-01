@@ -10,25 +10,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.KeyListener;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.saberpro.icfes.Funciones.Funciones;
-import com.saberpro.icfes.Interfaces.AuthApi;
-import com.saberpro.icfes.Interfaces.UsuarioApi;
-import com.saberpro.icfes.Models.Auth;
-import com.saberpro.icfes.Models.Usuario;
+import com.saberpro.Funciones.Funciones;
+import com.saberpro.Interfaces.AuthApi;
+import com.saberpro.Models.Auth;
 
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,7 +67,7 @@ public class login extends AppCompatActivity {
     }
 
     private void login(String email, String pass ){
-        String url = funciones.getUrl();
+        String url = Funciones.url;
         try{
             Retrofit retro = new Retrofit.Builder()
                     .baseUrl(url)
@@ -132,9 +124,9 @@ public class login extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (validaremail(charSequence.toString())){
-                    correo.setTextColor(getResources().getColor(R.color.text_color));
+                    correo.setTextColor(getResources().getColor(R.color.white));
                 }else{
-                    correo.setTextColor(getResources().getColor(R.color.design_default_color_error));
+                    correo.setTextColor(getResources().getColor(R.color.teal_200));
                 }
             }
 

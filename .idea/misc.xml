@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/background_launch.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/boton_presionado.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/stroke_selector.xml" value="0.167" />
         <entry key="app/src/main/res/layout-hdpi/activity_lista_areas.xml" value="0.56875" />
         <entry key="app/src/main/res/layout-hdpi/activity_login.xml" value="0.56875" />
         <entry key="app/src/main/res/layout-hdpi/activity_main.xml" value="0.56875" />
@@ -17,9 +18,11 @@
         <entry key="app/src/main/res/layout-sw600dp/activity_materias.xml" value="0.16575952498762989" />
         <entry key="app/src/main/res/layout-sw720dp/activity_materias.xml" value="0.1" />
         <entry key="app/src/main/res/layout-xxhdpi/activity_materias.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21120136810602821" />
         <entry key="app/src/main/res/layout/activity_main_registro.xml" value="0.19880290722530997" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.21120136810602821" />
-        <entry key="app/src/main/res/layout/fragment_first_registro.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_first_registro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_res_incorrecta.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.21120136810602821" />
         <entry key="app/src/main/res/layout/fragment_second_registro.xml" value="0.21120136810602821" />

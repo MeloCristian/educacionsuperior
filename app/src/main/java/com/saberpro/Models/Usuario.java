@@ -1,4 +1,4 @@
-package com.saberpro.icfes.Models;
+package com.saberpro.Models;
 
 public class Usuario {
 

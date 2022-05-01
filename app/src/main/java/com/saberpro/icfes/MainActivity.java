@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.saberpro.icfes.Funciones.Funciones;
-import com.saberpro.icfes.Interfaces.AuthApi;
-import com.saberpro.icfes.Models.Auth;
+import com.saberpro.Funciones.Funciones;
+import com.saberpro.Interfaces.AuthApi;
+import com.saberpro.Models.Auth;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void validar_sesionActiva(){
-        String url = funciones.getUrl();
+        String url = Funciones.url;
         SharedPreferences preferences = getSharedPreferences("tokens", Context.MODE_PRIVATE);
         String token = preferences.getString("token","DEFAULT");
         try{

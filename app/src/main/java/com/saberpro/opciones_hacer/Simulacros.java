@@ -1,9 +1,7 @@
-package com.saberpro.icfes.opciones_hacer;
+package com.saberpro.opciones_hacer;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.saberpro.icfes.Lista_areas;
 import com.saberpro.icfes.R;
 
 

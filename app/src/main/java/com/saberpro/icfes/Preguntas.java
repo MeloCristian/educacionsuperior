@@ -2,12 +2,10 @@ package com.saberpro.icfes;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -16,17 +14,15 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
-import com.saberpro.icfes.Funciones.Funciones;
-import com.saberpro.icfes.Interfaces.PreguntaApi;
-import com.saberpro.icfes.Models.Pregunta;
-import com.saberpro.icfes.Models.Respuesta;
-import com.saberpro.icfes.dialogs.ResCorrectaFragment;
-import com.saberpro.icfes.dialogs.ResIncorrectaFragment;
-import com.saberpro.icfes.dialogs.TeoriaFragment;
+import com.saberpro.Funciones.Funciones;
+import com.saberpro.Interfaces.PreguntaApi;
+import com.saberpro.Models.Pregunta;
+import com.saberpro.Models.Respuesta;
+import com.saberpro.dialogs.ResCorrectaFragment;
+import com.saberpro.dialogs.ResIncorrectaFragment;
+import com.saberpro.dialogs.TeoriaFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -84,7 +80,7 @@ public class Preguntas extends AppCompatActivity {
 
     private void setPregunta(){
         this.scroll_preguntas.fullScroll(View.FOCUS_UP);
-        String url = funciones.getUrl();
+        String url = Funciones.url;
         SharedPreferences preferences = getSharedPreferences("tokens", Context.MODE_PRIVATE);
         String token = preferences.getString("token","DEFAULT");
         try{

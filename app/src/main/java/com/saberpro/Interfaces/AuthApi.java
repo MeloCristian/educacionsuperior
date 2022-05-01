@@ -1,6 +1,6 @@
-package com.saberpro.icfes.Interfaces;
+package com.saberpro.Interfaces;
 
-import com.saberpro.icfes.Models.Auth;
+import com.saberpro.Models.Auth;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

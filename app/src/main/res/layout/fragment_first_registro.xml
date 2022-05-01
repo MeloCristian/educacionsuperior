@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,55 +29,46 @@
             app:textAllCaps="true"
             android:textStyle="bold"
             android:layout_marginBottom="@dimen/m_8"/>
+
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/m_16"
-            app:boxCornerRadiusTopEnd="@dimen/m_16"
-            app:boxCornerRadiusBottomEnd="@dimen/m_16"
-            app:boxCornerRadiusBottomStart="@dimen/m_16"
-            app:boxCornerRadiusTopStart="@dimen/m_16"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            android:hint="@string/nombres"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextInput"
                 android:id="@+id/ti_nombres"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/nombres"
-                android:singleLine="false" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/m_16"
-            app:boxCornerRadiusTopEnd="@dimen/m_16"
-            app:boxCornerRadiusBottomEnd="@dimen/m_16"
-            app:boxCornerRadiusBottomStart="@dimen/m_16"
-            app:boxCornerRadiusTopStart="@dimen/m_16"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            android:hint="@string/apellidos"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextInput"
                 android:id="@+id/ti_apellidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/apellidos" />
+                android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/m_16"
-            app:boxCornerRadiusTopEnd="@dimen/m_16"
-            app:boxCornerRadiusBottomEnd="@dimen/m_16"
-            app:boxCornerRadiusBottomStart="@dimen/m_16"
-            app:boxCornerRadiusTopStart="@dimen/m_16"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            android:layout_margin="@dimen/m_16">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextInput"
                 android:id="@+id/ti_fecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +78,8 @@
                 android:focusableInTouchMode="false"
                 android:hint="@string/fecha_nacimiento"
                 android:inputType="date"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

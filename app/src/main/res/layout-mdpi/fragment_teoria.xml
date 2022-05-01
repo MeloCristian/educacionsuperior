@@ -9,7 +9,7 @@
     android:layout_marginLeft="@dimen/m_top"
     android:layout_marginRight="@dimen/m_top"
     android:padding="@dimen/m_16"
-    tools:context=".dialogs.TeoriaFragment"
+    tools:context="com.saberpro.dialogs.TeoriaFragment"
     android:gravity="center"
     android:layout_gravity="center_vertical">
 

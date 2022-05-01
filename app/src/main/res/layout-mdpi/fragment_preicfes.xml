@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:layout_margin="@dimen/m_top"
-    tools:context=".opciones_hacer.Preicfes"
+    tools:context="com.saberpro.opciones_hacer.Preicfes"
     app:layout_gravity="center_horizontal|center_vertical"
     android:layout_centerInParent="true"
     android:gravity="center_vertical">
