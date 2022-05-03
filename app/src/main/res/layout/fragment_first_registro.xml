@@ -82,7 +82,8 @@
                 android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button"
             android:id="@+id/btn_siguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.saberpro.opcionesHacer.Preicfes"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/tv_text_preicfes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Preicfes"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/font_size_title"
+        android:padding="@dimen/m_8"
+        android:textAlignment="center"
+        android:layout_margin="@dimen/m_16"/>
+
+    <ImageView
+        android:layout_below="@+id/tv_text_preicfes"
+        android:id="@+id/img_preicfes"
+        android:layout_width="@dimen/alto_carita_feliz"
+        android:layout_height="@dimen/alto_carita_feliz"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/img_preicfes"
+        android:backgroundTint="@color/white"
+        android:layout_centerHorizontal="true"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ir"
+        android:textSize="@dimen/font_size_buttons"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/img_preicfes"
+        android:id="@+id/btn_pre_icfes"
+        android:textColor="@color/white"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2dp"
+        app:cornerRadius="@dimen/corner_radius_btn" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

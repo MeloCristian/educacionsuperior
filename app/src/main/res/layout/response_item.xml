@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.radiobutton.MaterialRadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rb_respuesta"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/m_16"
+    android:layout_marginRight="@dimen/m_16"
+    android:buttonTint="@color/azul_fondo2"
+    android:padding="@dimen/m_8"
+    android:text="@string/pregunta_n"
+    android:textColorLink="@color/azul_fondo3"
+    android:textSize="@dimen/font_size_text2"
+    android:layout_gravity="center"/>
+

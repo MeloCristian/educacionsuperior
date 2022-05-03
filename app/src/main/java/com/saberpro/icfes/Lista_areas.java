@@ -1,80 +1,45 @@
 package com.saberpro.icfes;
 
+import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-import android.text.Html;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.saberpro.opciones_hacer.Preicfes;
-import com.saberpro.opciones_hacer.Simulacros;
+import com.google.android.material.tabs.TabLayout;
+import com.saberpro.icfes.databinding.ActivityListaAreasBinding;
+import com.saberpro.opcionesHacer.Preicfes;
+import com.saberpro.opcionesHacer.Simulacros;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lista_areas extends AppCompatActivity{
+public class Lista_areas extends AppCompatActivity {
 
-    private ViewPager pager;
     private PagerAdapter pagerAdapter;
-    private LinearLayout linearLayout_puntos;
-    private TextView[] puntosSlide;
+    private ActivityListaAreasBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_areas);;
-
-        List<Fragment>  list = new ArrayList<>();
+        binding = ActivityListaAreasBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolbar);
+        setTitle(R.string.app_name);
+        List<Fragment> list = new ArrayList<>();
         list.add(new Preicfes());
         list.add(new Simulacros());
 
-        pager = findViewById(R.id.pager);
-        pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
-        pager.setAdapter(pagerAdapter);
+        pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
+        binding.pager.setAdapter(pagerAdapter);
+        agregarIndPuntos();
 
-        linearLayout_puntos = findViewById(R.id.lista_puntos);
-        agregarIndPuntos(0);
-        pager.addOnPageChangeListener(this.viewListener);
     }
 
-    private void agregarIndPuntos(int pos) {
-        puntosSlide = new TextView[2];
-        linearLayout_puntos.removeAllViews();
-        for(int i=0;i<puntosSlide.length;i++){
-            puntosSlide[i] = new TextView(this);
-            System.out.println(puntosSlide[i]);
-            puntosSlide[i].setText(Html.fromHtml("&#8226;"));
-            puntosSlide[i].setTextSize(getResources().getDimension(R.dimen.font_size_title2));
-            puntosSlide[i].setTextColor(getResources().getColor(R.color.azul_fondo3));
-            linearLayout_puntos.addView(puntosSlide[i]);
-        }
-
-        if(puntosSlide.length>0){
-            puntosSlide[pos].setTextColor(getResources().getColor(R.color.white));
-        }
+    private void agregarIndPuntos() {
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabDots);
+        tabLayout.setupWithViewPager(binding.pager, true);
     }
-
-    ViewPager.OnPageChangeListener viewListener = new  ViewPager.OnPageChangeListener(){
-
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            agregarIndPuntos(position);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-
-        }
-    };
 
 }

@@ -52,7 +52,7 @@ public class FirstFragmentRegistro extends Fragment {
         }
         binding.tiNombres.setText(nombres);
         binding.tiApellidos.setText(apellidos);
-        if (fechaNacimiento > 0){
+        if (fechaNacimiento > 0) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             binding.tiFecha.setText(format.format(new Date(fechaNacimiento)));
         }

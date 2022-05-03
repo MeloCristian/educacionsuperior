@@ -1,7 +1,9 @@
 package com.saberpro.icfes;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,15 +23,25 @@ public class MainRegistro extends AppCompatActivity {
         setTitle(R.string.app_name);
         binding = ActivityMainRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.toolbar);
-
+        setBackActions();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main_registro);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-
     }
+
+    private void setBackActions() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

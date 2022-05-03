@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.saberpro.Funciones.Funciones;
-import com.saberpro.Interfaces.UsuarioApi;
-import com.saberpro.Models.Usuario;
+import com.saberpro.funciones.Funciones;
+import com.saberpro.interfaces.UsuarioApi;
+import com.saberpro.models.Usuario;
 import com.saberpro.icfes.databinding.FragmentSecondRegistroBinding;
 
 import java.io.IOException;
@@ -135,7 +135,7 @@ public class SecondFragmentRegistro extends Fragment {
 
                     Usuario usuario = response.body();
                     Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getContext(), login.class);
+                    Intent i = new Intent(getContext(), Login.class);
                     startActivity(i);
                     getActivity().finish();
                 }

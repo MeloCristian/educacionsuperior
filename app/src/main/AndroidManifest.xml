@@ -20,7 +20,7 @@
             android:label="@string/title_activity_main_registro"
             android:theme="@style/Theme.Icfes.NoActionBar" />
         <activity android:name=".Lista_areas"></activity>
-        <activity android:name=".login" />
+        <activity android:name=".Login" />
         <activity
             android:name=".splash_bienvenida"
             android:exported="true"

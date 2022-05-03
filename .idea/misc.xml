@@ -6,6 +6,9 @@
         <entry key="app/src/main/res/drawable/background_launch.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/boton_presionado.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/stroke_selector.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/tab_indicator_default.xml" value="0.119" />
+        <entry key="app/src/main/res/drawable/tab_indicator_selected.xml" value="0.119" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.119" />
         <entry key="app/src/main/res/layout-hdpi/activity_lista_areas.xml" value="0.56875" />
         <entry key="app/src/main/res/layout-hdpi/activity_login.xml" value="0.56875" />
         <entry key="app/src/main/res/layout-hdpi/activity_main.xml" value="0.56875" />
@@ -15,17 +18,26 @@
         <entry key="app/src/main/res/layout-hdpi/fragment_res_correcta.xml" value="0.21120136810602821" />
         <entry key="app/src/main/res/layout-hdpi/fragment_simulacros.xml" value="0.19296875" />
         <entry key="app/src/main/res/layout-hdpi/preguntas.xml" value="0.6175" />
+        <entry key="app/src/main/res/layout-mdpi/fragment_simulacros.xml" value="1.0291666666666666" />
         <entry key="app/src/main/res/layout-sw600dp/activity_materias.xml" value="0.16575952498762989" />
+        <entry key="app/src/main/res/layout-sw720dp/activity_lista_areas.xml" value="0.12864583333333332" />
         <entry key="app/src/main/res/layout-sw720dp/activity_materias.xml" value="0.1" />
         <entry key="app/src/main/res/layout-xxhdpi/activity_materias.xml" value="0.25729166666666664" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_lista_areas.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21120136810602821" />
         <entry key="app/src/main/res/layout/activity_main_registro.xml" value="0.19880290722530997" />
+        <entry key="app/src/main/res/layout/activity_materias.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/card_area.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/content_main_registro.xml" value="0.21120136810602821" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.21120136810602821" />
-        <entry key="app/src/main/res/layout/fragment_first_registro.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_first_registro.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_preicfes.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_res_incorrecta.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.21120136810602821" />
         <entry key="app/src/main/res/layout/fragment_second_registro.xml" value="0.21120136810602821" />
+        <entry key="app/src/main/res/layout/preguntas.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/response_item.xml" value="0.21120136810602821" />
       </map>
     </option>
   </component>
