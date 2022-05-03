@@ -30,6 +30,12 @@ public class ListAnswersAdapter extends RecyclerView.Adapter<ListAnswersAdapter.
         this.listener = listener;
     }
 
+    public Respuesta getAnswer() {
+        if (selectedPosition != -1)
+            return respuestaList.get(selectedPosition);
+        return null;
+    }
+
     @NonNull
     @Override
     public ListAnswersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

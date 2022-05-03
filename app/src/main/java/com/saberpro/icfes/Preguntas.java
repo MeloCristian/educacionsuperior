@@ -42,6 +42,8 @@ public class Preguntas extends AppCompatActivity {
     private ListAnswersAdapter adapter;
     private List<Respuesta> respuestaList;
     private ListAnswersAdapter.ItemClickListener listener;
+    private Pregunta pregunta;
+    private Retrofit retrofit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,10 +52,31 @@ public class Preguntas extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         this.id_area = getIntent().getStringExtra("id_area");
-        this.nPregunta = 0;
-        this.progressDialog = ProgressDialog.show(this, "Cargando...", "", true);
+        binding.tvTitleArea.setText(getIntent().getStringExtra("nombre_area"));
+        this.nPregunta = 1;
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Funciones.url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
         setPregunta();
         setBackActions();
+        setListeners();
+    }
+
+    private void setListeners() {
+        binding.btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarInfo();
+            }
+        });
+
+        binding.btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                siguientePregunta();
+            }
+        });
     }
 
     private void setBackActions() {
@@ -69,17 +92,12 @@ public class Preguntas extends AppCompatActivity {
     }
 
     private void setPregunta() {
-
-        String url = Funciones.url;
+        this.progressDialog = ProgressDialog.show(this, "Cargando...", "", true);
+        binding.scrollView.scrollTo(0,0);
         SharedPreferences preferences = getSharedPreferences("tokens", Context.MODE_PRIVATE);
         String token = preferences.getString("token", "DEFAULT");
         try {
-            Retrofit retro = new Retrofit.Builder()
-                    .baseUrl(url)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            PreguntaApi preguntaApi = retro.create(PreguntaApi.class);
+            PreguntaApi preguntaApi = retrofit.create(PreguntaApi.class);
             SharedPreferences sharedPref = getSharedPreferences("tokens", Context.MODE_PRIVATE);
             int id_usuario = sharedPref.getInt("id_usuario", 0);
             Call<Pregunta> call = preguntaApi.getPregunta(this.id_area, "Bearer " + token, String.valueOf(id_usuario));
@@ -94,6 +112,7 @@ public class Preguntas extends AppCompatActivity {
                     if (response.body().getRespuestas().size()==0){
                         respuestaList = new ArrayList<>();
                     }
+                    pregunta = response.body();
                     respuestaList = response.body().getRespuestas();
                     listener = new ListAnswersAdapter.ItemClickListener() {
                         @Override
@@ -107,9 +126,11 @@ public class Preguntas extends AppCompatActivity {
                         }
                     };
                     adapter = new ListAnswersAdapter(respuestaList,listener);
+                    binding.tvPregunta.setText(pregunta.getDescripcion());
                     binding.recyclerViewAnswers.setAdapter(adapter);
                     binding.recyclerViewAnswers.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
+                    binding.titlePregunta.setText("Pregunta "+nPregunta);
+                    info = response.body().getClave();
                     closeProgres();
                 }
 
@@ -127,17 +148,15 @@ public class Preguntas extends AppCompatActivity {
         }
     }
 
-/*    public void siguiente(View view) {
-        RadioButton selected = (RadioButton) findViewById(rg_respuestas.getCheckedRadioButtonId());
-        int index = rg_respuestas.indexOfChild(selected);
-        System.out.println(index);
-        if (index >= 0) {
-            if (respuestas[index].isCorrecta()) {
+    public void siguientePregunta() {
+        Respuesta respuesta = adapter.getAnswer();
+        if (respuesta != null) {
+            if (respuesta.isCorrecta()) {
                 ResCorrectaFragment resCorrectaFragment = new ResCorrectaFragment(pregunta.getClave());
                 resCorrectaFragment.show(getSupportFragmentManager(), "Siguiente");
             } else {
                 Respuesta correcta = null;
-                for (Respuesta res : respuestas) {
+                for (Respuesta res : respuestaList) {
                     if (res.isCorrecta()) {
                         correcta = res;
                     }
@@ -146,14 +165,15 @@ public class Preguntas extends AppCompatActivity {
                 resIncorrectaFragment.show(getSupportFragmentManager(), "Respuesta incorrecta");
             }
             setPregunta();
-            this.rg_respuestas.clearCheck();
+            this.respuestaList = new ArrayList<>();
+            nPregunta ++;
+            binding.titlePregunta.setText("Pregunta "+nPregunta);
         } else {
             Toast.makeText(getApplicationContext(), "Seleccione una opcion", Toast.LENGTH_SHORT).show();
         }
+    }
 
-    }*/
-
-    public void mostrarInfo(View view) {
+    public void mostrarInfo() {
         TeoriaFragment teoriaFragment = new TeoriaFragment(this.info);
         teoriaFragment.show(getSupportFragmentManager(), "Teoria");
     }

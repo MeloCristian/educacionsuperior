@@ -17,6 +17,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/layout_bahavior">
@@ -26,19 +27,19 @@
             android:layout_height="wrap_content">
 
             <TextView
-                style="@style/Title"
                 android:id="@+id/tv_title_area"
+                style="@style/Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sociales"/>
+                android:text="@string/sociales" />
 
             <TextView
-                style="@style/Subtitle"
                 android:id="@+id/title_pregunta"
+                style="@style/Subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title_area"
-                android:text="@string/pregunta_n"/>
+                android:text="@string/pregunta_n" />
 
             <TextView
                 android:id="@+id/tv_pregunta"
@@ -54,7 +55,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_size_text2" />
 
-            <RadioGroup
+            <androidx.cardview.widget.CardView
                 android:id="@+id/respuestas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
                     android:id="@+id/recyclerViewAnswers"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-            </RadioGroup>
+            </androidx.cardview.widget.CardView>
 
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
@@ -90,13 +91,15 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/btn_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:icon="@drawable/ic_baseline_help_24"
                         android:layout_marginEnd="@dimen/m_8"
+                        android:backgroundTint="@color/white"
+                        app:collapsedSize="42dp"
+                        app:icon="@drawable/ic_baseline_help_24"
                         app:iconSize="@dimen/m_50"
-                        android:backgroundTint="@color/teal_700"
-                        app:iconTint="@color/purple_500"/>
+                        app:iconTint="@color/azul_fondo2" />
 
                     <com.google.android.material.button.MaterialButton
                         style="@style/Button"
