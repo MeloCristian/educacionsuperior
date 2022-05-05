@@ -6,6 +6,15 @@ public class Respuesta {
     private String id_pregunta;
     private String descripcion;
     private boolean correcta;
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public String getId_respuesta() {
         return id_respuesta;

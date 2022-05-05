@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v23/img_rario_button.xml" value="0.1265" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/background_launch.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/boton_presionado.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/img_rario_button.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/stroke_selector.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/tab_indicator_default.xml" value="0.119" />
         <entry key="app/src/main/res/drawable/tab_indicator_selected.xml" value="0.119" />

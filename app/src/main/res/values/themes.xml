@@ -78,4 +78,14 @@
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginTop">@dimen/m_16</item>
     </style>
+
+    <style name="RadioButton" parent="Theme.Icfes">
+        <item name="android:layout_marginEnd">@dimen/m_16</item>
+        <item name="android:layout_marginStart">@dimen/m_16</item>
+        <item name="android:buttonTint">@color/azul_fondo2</item>
+        <item name="android:padding">@dimen/m_8</item>
+        <item name="android:textColorLink">@color/azul_fondo3</item>
+        <item name="android:textSize">@dimen/font_size_text2</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 </resources>

@@ -11,9 +11,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
+import com.saberpro.funciones.Funciones;
 import com.saberpro.icfes.Preguntas;
 import com.saberpro.icfes.R;
 import com.saberpro.models.Area;
@@ -42,8 +44,15 @@ public class ListAreasAdapter extends RecyclerView.Adapter<ListAreasAdapter.View
         holder.title.setText(areaList.get(position).getNombre());
         holder.descripcion.setText(areaList.get(position).getDescripcion());
         setListeners(holder.button, areaList.get(position));
-        String url = generateUrl(areaList.get(position).getImg());
-        Glide.with(view.getContext()).load(url).priority(Priority.IMMEDIATE).into(holder.imageView);
+        String url = Funciones.generateUrl(areaList.get(position).getImg());
+        CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(view.getContext());
+        circularProgressDrawable.setStrokeWidth(5f);
+        circularProgressDrawable.setCenterRadius(30f);
+        circularProgressDrawable.start();
+        Glide.with(view.getContext())
+                .load(url)
+                .placeholder(circularProgressDrawable)
+                .into(holder.imageView);
     }
 
     @Override
@@ -78,11 +87,5 @@ public class ListAreasAdapter extends RecyclerView.Adapter<ListAreasAdapter.View
                 activity.finish();
             }
         });
-    }
-
-    private String generateUrl(String s) {
-        String[] p = s.split("/");
-        String imageLink = "https://drive.google.com/uc?export=download&id=" + p[5];
-        return imageLink;
     }
 }

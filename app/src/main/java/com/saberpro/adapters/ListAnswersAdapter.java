@@ -1,14 +1,29 @@
 package com.saberpro.adapters;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.arch.core.executor.TaskExecutor;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.saberpro.funciones.Funciones;
 import com.saberpro.icfes.R;
 import com.saberpro.models.Respuesta;
 
@@ -46,7 +61,37 @@ public class ListAnswersAdapter extends RecyclerView.Adapter<ListAnswersAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ListAnswersAdapter.ViewHolder holder, int position) {
-        holder.answer.setText(respuestaList.get(position).getDescripcion());
+        if (respuestaList.get(position).getDescripcion() != null){
+            holder.answer.setText(respuestaList.get(position).getDescripcion());
+            holder.answer.setCompoundDrawablesRelative(null, null,null,null);
+        }
+        else{
+            Resources resources = view.getResources();
+            LayerDrawable layerDrawable = (LayerDrawable) resources.getDrawable(R.drawable.img_rario_button);
+            String url = Funciones.generateUrl(respuestaList.get(position).getImg());
+            CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(view.getContext());
+            circularProgressDrawable.setStrokeWidth(5f);
+            circularProgressDrawable.setCenterRadius(30f);
+            circularProgressDrawable.start();
+            Glide.with(view.getContext())
+                    .asBitmap()
+                    .load(url)
+                    .placeholder(circularProgressDrawable)
+                    .into(new CustomTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                            Drawable drawable = new BitmapDrawable(view.getResources(),  Bitmap.createScaledBitmap(resource, 600, 600, true));
+                            layerDrawable.setDrawableByLayerId(R.id.img_respuesta,drawable);
+                            holder.answer.setCompoundDrawables(drawable, null,null,null);
+                            holder.answer.setText("");
+                        }
+
+                        @Override
+                        public void onLoadCleared(@Nullable Drawable placeholder) {
+                        }
+                    });
+        }
+
         holder.answer.setChecked(position == selectedPosition);
         holder.answer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

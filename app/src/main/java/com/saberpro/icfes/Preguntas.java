@@ -4,16 +4,26 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.saberpro.adapters.ListAnswersAdapter;
 import com.saberpro.dialogs.ResCorrectaFragment;
 import com.saberpro.dialogs.ResIncorrectaFragment;
@@ -106,11 +116,12 @@ public class Preguntas extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Pregunta> call, Response<Pregunta> response) {
                     if (!response.isSuccessful()) {
-                        Toast.makeText(getApplicationContext(), "Sesion caducada", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error 500", Toast.LENGTH_LONG).show();
                         return;
                     }
-                    if (response.body().getRespuestas().size()==0){
+                    if (response.body()==null){
                         respuestaList = new ArrayList<>();
+                        return;
                     }
                     pregunta = response.body();
                     respuestaList = response.body().getRespuestas();
@@ -120,7 +131,7 @@ public class Preguntas extends AppCompatActivity {
                             binding.recyclerViewAnswers.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    adapter.notifyItemRangeChanged(0,respuestaList.size());
+                                    adapter.notifyDataSetChanged();
                                 }
                             });
                         }
@@ -131,6 +142,30 @@ public class Preguntas extends AppCompatActivity {
                     binding.recyclerViewAnswers.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     binding.titlePregunta.setText("Pregunta "+nPregunta);
                     info = response.body().getClave();
+                    if (response.body().getImg() != null){
+                        LayerDrawable layerDrawable = (LayerDrawable) getResources().getDrawable(R.drawable.img_rario_button);
+                        String url = Funciones.generateUrl(pregunta.getImg());
+                        CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(getApplicationContext());
+                        circularProgressDrawable.setStrokeWidth(5f);
+                        circularProgressDrawable.setCenterRadius(30f);
+                        circularProgressDrawable.start();
+                        Glide.with(getApplicationContext())
+                                .asBitmap()
+                                .load(url)
+                                .placeholder(circularProgressDrawable)
+                                .into(new CustomTarget<Bitmap>() {
+                                    @Override
+                                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                        Drawable drawable = new BitmapDrawable(getResources(),  Bitmap.createScaledBitmap(resource, 100, 1000, true));
+                                        layerDrawable.setDrawableByLayerId(R.id.img_respuesta,drawable);
+                                        binding.tvPregunta.setCompoundDrawables(null, null,null,drawable);
+                                    }
+
+                                    @Override
+                                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                                    }
+                                });
+                    }
                     closeProgres();
                 }
 
@@ -138,7 +173,6 @@ public class Preguntas extends AppCompatActivity {
                 public void onFailure(Call<Pregunta> call, Throwable t) {
                     closeProgres();
                     Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-
                 }
             });
 
