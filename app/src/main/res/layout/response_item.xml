@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.radiobutton.MaterialRadioButton style="@style/RadioButton"
-    android:drawableStart="@drawable/img_rario_button"
     android:id="@+id/rb_respuesta"
     android:layout_gravity="start"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:text="@string/pregunta_n"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawableBottom="@drawable/check"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 </com.google.android.material.radiobutton.MaterialRadioButton>
 
 

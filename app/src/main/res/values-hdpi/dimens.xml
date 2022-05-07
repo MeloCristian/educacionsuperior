@@ -15,4 +15,11 @@
     <dimen name="c_elevation">8dp</dimen>
     <dimen name="m_8">8dp</dimen>\
     <dimen name="font_size_text2">15sp</dimen>
+
+    <!--Dimensiones de vista areas-->
+    <dimen name="img_area">100dp</dimen>
+
+
+    <!--Dimensiones preguntas-->
+    <dimen name="img_pregunta">200dp</dimen>
 </resources>

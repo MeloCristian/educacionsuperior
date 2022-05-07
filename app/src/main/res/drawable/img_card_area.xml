@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/img_respuesta"
+        android:drawable="@drawable/quimica"
+        android:width="@dimen/img_area"
+        android:height="@dimen/img_area"
+        android:gravity="center_horizontal"
+        />
+</layer-list>

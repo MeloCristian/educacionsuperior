@@ -9,18 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.arch.core.executor.TaskExecutor;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.Priority;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.saberpro.funciones.Funciones;
@@ -66,8 +63,7 @@ public class ListAnswersAdapter extends RecyclerView.Adapter<ListAnswersAdapter.
             holder.answer.setCompoundDrawablesRelative(null, null,null,null);
         }
         else{
-            Resources resources = view.getResources();
-            LayerDrawable layerDrawable = (LayerDrawable) resources.getDrawable(R.drawable.img_rario_button);
+            LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(view.getContext(), R.drawable.img_radio_button);
             String url = Funciones.generateUrl(respuestaList.get(position).getImg());
             CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(view.getContext());
             circularProgressDrawable.setStrokeWidth(5f);
@@ -82,7 +78,7 @@ public class ListAnswersAdapter extends RecyclerView.Adapter<ListAnswersAdapter.
                         public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                             Drawable drawable = new BitmapDrawable(view.getResources(),  Bitmap.createScaledBitmap(resource, 600, 600, true));
                             layerDrawable.setDrawableByLayerId(R.id.img_respuesta,drawable);
-                            holder.answer.setCompoundDrawables(drawable, null,null,null);
+                            holder.answer.setCompoundDrawablesWithIntrinsicBounds(null, null,null,layerDrawable);
                             holder.answer.setText("");
                         }
 
@@ -107,16 +103,6 @@ public class ListAnswersAdapter extends RecyclerView.Adapter<ListAnswersAdapter.
     @Override
     public int getItemCount() {
         return respuestaList.size();
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return position;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

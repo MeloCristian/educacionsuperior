@@ -4,26 +4,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.saberpro.adapters.ListAnswersAdapter;
 import com.saberpro.dialogs.ResCorrectaFragment;
 import com.saberpro.dialogs.ResIncorrectaFragment;
@@ -59,10 +50,10 @@ public class Preguntas extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = PreguntasBinding.inflate(getLayoutInflater());
+        setTitle(getIntent().getStringExtra("nombre_area"));
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         this.id_area = getIntent().getStringExtra("id_area");
-        binding.tvTitleArea.setText(getIntent().getStringExtra("nombre_area"));
         this.nPregunta = 1;
         retrofit = new Retrofit.Builder()
                 .baseUrl(Funciones.url)
@@ -103,7 +94,7 @@ public class Preguntas extends AppCompatActivity {
 
     private void setPregunta() {
         this.progressDialog = ProgressDialog.show(this, "Cargando...", "", true);
-        binding.scrollView.scrollTo(0,0);
+        binding.scrollView.scrollTo(0, 0);
         SharedPreferences preferences = getSharedPreferences("tokens", Context.MODE_PRIVATE);
         String token = preferences.getString("token", "DEFAULT");
         try {
@@ -119,7 +110,7 @@ public class Preguntas extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error 500", Toast.LENGTH_LONG).show();
                         return;
                     }
-                    if (response.body()==null){
+                    if (response.body() == null) {
                         respuestaList = new ArrayList<>();
                         return;
                     }
@@ -136,35 +127,22 @@ public class Preguntas extends AppCompatActivity {
                             });
                         }
                     };
-                    adapter = new ListAnswersAdapter(respuestaList,listener);
-                    binding.tvPregunta.setText(pregunta.getDescripcion());
+                    adapter = new ListAnswersAdapter(respuestaList, listener);
+                    binding.dvPregunta.setText(pregunta.getDescripcion());
                     binding.recyclerViewAnswers.setAdapter(adapter);
                     binding.recyclerViewAnswers.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    binding.titlePregunta.setText("Pregunta "+nPregunta);
                     info = response.body().getClave();
-                    if (response.body().getImg() != null){
-                        LayerDrawable layerDrawable = (LayerDrawable) getResources().getDrawable(R.drawable.img_rario_button);
+                    if (response.body().getImg() != null) {
                         String url = Funciones.generateUrl(pregunta.getImg());
                         CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(getApplicationContext());
                         circularProgressDrawable.setStrokeWidth(5f);
                         circularProgressDrawable.setCenterRadius(30f);
                         circularProgressDrawable.start();
                         Glide.with(getApplicationContext())
-                                .asBitmap()
                                 .load(url)
                                 .placeholder(circularProgressDrawable)
-                                .into(new CustomTarget<Bitmap>() {
-                                    @Override
-                                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                        Drawable drawable = new BitmapDrawable(getResources(),  Bitmap.createScaledBitmap(resource, 100, 1000, true));
-                                        layerDrawable.setDrawableByLayerId(R.id.img_respuesta,drawable);
-                                        binding.tvPregunta.setCompoundDrawables(null, null,null,drawable);
-                                    }
+                                .into(binding.imgCardPregunta);
 
-                                    @Override
-                                    public void onLoadCleared(@Nullable Drawable placeholder) {
-                                    }
-                                });
                     }
                     closeProgres();
                 }
@@ -200,8 +178,8 @@ public class Preguntas extends AppCompatActivity {
             }
             setPregunta();
             this.respuestaList = new ArrayList<>();
-            nPregunta ++;
-            binding.titlePregunta.setText("Pregunta "+nPregunta);
+            nPregunta++;
+            binding.titlePregunta.setText("Pregunta " + nPregunta);
         } else {
             Toast.makeText(getApplicationContext(), "Seleccione una opcion", Toast.LENGTH_SHORT).show();
         }
